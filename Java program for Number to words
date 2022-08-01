@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class currency {
+
+    public static void main(String args[]) {
+
+        Scanner s = new Scanner(System.in);
+        int n, n1, n2, n3, n4, n5, n6;
+
+        System.out.println("Enter your amount:");
+        n = s.nextInt();
+
+        n1 = n / 10000 % 10;
+        n2 = n / 1000 % 10;
+        n3 = n / 100 % 10;
+        n4 = n / 10 % 10;
+        n5 = n % 10;
+
+
+        String[] ones = new String[]{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+        String[] tens = new String[]{"", "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninty"};
+        String[] hun = new String[]{"", "", "ten", "hunderd"};
+        String[] tho = new String[]{"", "", "ten", "hunderd", "thousand"};
+        String[] lakh = new String[]{"", "", "ten", "hunderd", "thousand", "lakh"};
+
+        if (n < 20) {
+            System.out.println(ones[n]);
+        }
+        
+        if (n == 100) {
+            System.out.println(ones[n5] + "hundred");
+        }
+
+        if (n > 20 && n < 100) {
+           
+            System.out.println(tens[n4] + " " + ones[n5]);
+        }
+
+        if (n == 1000) {
+            System.out.println(ones[n3]+"Thousand");
+        }
+
+        if (n > 100 && n < 1000) {
+            
+            System.out.println(ones[n3] + hun[n3] + tens[n4] + " " + ones[n5]);
+        }
+        
+        if (n == 10000) {
+            System.out.println(ones[n2]+" thousand");
+        }
+        if (n > 1000 && n < 10000) {
+
+            System.out.println(ones[n2] + tho[4] + ones[n3] + hun[n3] + tens[n4] + " " + ones[n5]);
+        }
+
+        if (n == 100000) {
+            System.out.println("One lakh");
+        }
+
+        if (n > 10000 && n < 100000) {
+            System.out.println(tens[n1] + ones[n2] + "thousand " + ones[n3] + "hundred " + tens[n4] + " " + ones[n5]);
+        }
+
+    }
+}
